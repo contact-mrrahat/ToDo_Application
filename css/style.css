@@ -2,10 +2,18 @@
     border: 1px solid black;
     padding: 20px;
     gap: 20px;
+    
 }
 .allpost{
     gap: 20px;
+    
 }
 .flex{
     gap:20px
+}
+.post_btn{
+    display:inline-block;
+}
+.update_btn{
+    display:none;
 }

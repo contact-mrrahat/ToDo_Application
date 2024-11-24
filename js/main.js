@@ -3,7 +3,10 @@ let allpost = document.querySelector(".allpost");
 let titel = document.querySelector(".titel");
 let contant = document.querySelector(".contant");
 let btn = document.querySelector(".post_btn");
+let post_btn = document.querySelector(".post_btn")
+let update_btn = document.querySelector(".update_btn")
 let arry = [];
+let indextStore;
 
 
 
@@ -21,6 +24,22 @@ btn.addEventListener("click", function(){
    post();
     
     
+})
+
+update_btn.addEventListener("click", function(){
+  arry[indextStore].titel=titel.value;
+  arry[indextStore].contant=contant.value;
+
+  allpost.innerHTML="";
+  post()
+
+  update_btn.style.display=("none");
+  post_btn.style.display=("inline-block")
+
+  titel.value="";
+  contant.value="";
+
+  
 })
 
 function post (){
@@ -50,6 +69,24 @@ function post (){
             post()
           })
         })
+
+        let edit_btn= document.querySelectorAll(".edit_btn");
+        let edit_btnConvert = Array.from(edit_btn);
+
+        edit_btnConvert.map((value,index) => {
+          value.addEventListener("click", function(){
+            titel.value=arry[index].titel;
+            contant.value=arry[index].contant;
+
+            post_btn.style.display=("none");
+            update_btn.style.display=("inline-block");
+
+            indextStore=index;
+            
+          })
+        })
+
+
         
         
         
